@@ -1,3 +1,6 @@
+import './index.css';
+import './style.less';
+
 const handle = (name: string) => {
   console.log(name, 'name---')
 

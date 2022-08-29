@@ -1,0 +1,7 @@
+.a {
+  width: 100px;
+}
+
+::placeholder {
+  color: #000;
+}
