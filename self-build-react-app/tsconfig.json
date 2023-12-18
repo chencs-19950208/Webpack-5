@@ -11,6 +11,7 @@
     "declaration": true, // 生成声明文件
     "allowUnusedLabels": false,
     "strict": true,
+    "experimentalDecorators": true, // 开启装饰器的使用
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext", // 指定生成那个模块系统的代码
     "noImplicitAny": true, // 是否禁用any

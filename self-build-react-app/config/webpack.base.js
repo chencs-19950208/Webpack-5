@@ -23,7 +23,13 @@ module.exports = {
       }, 
       {
         test: /.(js|jsx)$/,
-        use: 'babel-loader'
+        use: {
+          loader: 'babel-loader',
+          options: {
+            sourceType: 'unambiguous'
+          },
+        }
+
       },
       {
         test: /\.(css|less)$/, // 匹配css less文件
@@ -34,6 +40,45 @@ module.exports = {
           'postcss-loader',
           'less-loader'
         ] // 从右往左执行，先解析css，然后再通过style-loader, 注入到模板中
+      },
+      {
+        // 图片资源的处理
+        test: /.(png|jpg|jpeg|gif|svg)$/, // 匹配图片文件
+        type: 'asset', // type 选择 asset
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于 10kb转 base64
+          },
+        },
+        generator: {
+          filename: 'static/images/[name][ext]', // 文件输出目录和命名
+        },
+      },
+      {
+        // 字体图标文件
+        test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+        type: 'asset', 
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
+        generator: {
+          filename: 'static/fonts/[name][ext]',
+        },
+      },
+      {
+        // 媒体文件
+        test: /.(mp4|wwebm|ogg|mp3|wav|flac|aac)$/, // 匹配媒体资源文件
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024
+          }
+        },
+        generator: {
+          filename: 'static/media/[name][ext]'
+        },
       }
     ],
   },
