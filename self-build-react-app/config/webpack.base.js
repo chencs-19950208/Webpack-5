@@ -50,7 +50,16 @@ module.exports = {
         include: [path.resolve(__dirname, '../src')],
         use: [
           isDEV ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发模式使用style-loader, 打包的时候抽离css 
-          'css-loader', 
+          { // 支持 css 模块化
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: "[local]_[hash:base64:5]",
+                localIdentContext: path.resolve(__dirname, "src"),
+              },
+            }
+          },
           // 新增css3处理，主要针对低版本浏览器兼容问题，自动添加前缀
           'postcss-loader',
         ] // 从右往左执行，先解析css，然后再通过style-loader, 注入到模板中
@@ -60,7 +69,16 @@ module.exports = {
         include: [path.resolve(__dirname, '../src')],
         use: [
           isDEV ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发模式使用style-loader, 打包的时候抽离css
-          'css-loader',
+          { // 支持模块化
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: "[local]_[hash:base64:5]",
+                localIdentContext: path.resolve(__dirname, "src"),
+              },
+            },
+          },
           'postcss-loader',
           'less-loader'
         ]
