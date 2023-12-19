@@ -22,4 +22,4 @@
 8.webpack可以借助compression-webpack-plugin 插件在打包时生成 gzip
 
 
-9.css、less 模块化处理参照 [https://github.com/webpack-contrib/css-loader/blob/master/README.md]
+9.css、less 模块化处理 [参照](https://github.com/webpack-contrib/css-loader/blob/master/README.md)
