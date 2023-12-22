@@ -1,0 +1,20 @@
+{
+  "name": "webpack-achieve",
+  "version": "1.0.0",
+  "description": "轻量级webpack",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "node ./scripts/bundler.js"
+  },
+  "keywords": [
+    "webpack-ch"
+  ],
+  "author": "chencs",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/parser": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/traverse": "^7.23.6"
+  }
+}
